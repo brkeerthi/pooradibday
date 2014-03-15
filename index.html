@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Happy Birthday</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="shortcut icon" href="flat-ui/images/favicon.ico">
+        <link rel="stylesheet" href="flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="flat-ui/css/flat-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style2.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo1.css" />
+        <link rel="stylesheet" type="text/css" href="css/style3.css" />
+		<script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+        <!-- Using only with Flat-UI (free)-->
+        <link rel="stylesheet" href="common-files/css/icon-font.css">
+        <!-- end -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+	  <body id="page">
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span><div><h3>Happy Birthday</h3></div></li>
+            <li><span>Image 02</span><div><h3>The Time We Spent</h3></div></li>
+            <li><span>Image 03</span><div><h3>The Laughs We shared</h3></div></li>
+            <li><span>Image 04</span><div><h3>Lets hope</h3></div></li>
+            <li><span>Image 05</span><div><h3>This Bond Of Friendship</h3></div></li>
+            <li><span>Image 06</span><div><h3>Stays Forever</h3></div></li>
+        </ul>
+        <div class="container">
+            
+
+            <!-- content-7  -->
+            <section class="pe-container">
+				<ul id="pe-thumbs" class="pe-thumbs">
+					<li><a href="#"><img src="images/thumbs/1.jpg" />
+					<li><a href="#"><img src="images/thumbs/2.jpg" />
+					<li><a href="#"><img src="images/thumbs/3.jpg" />
+					<li><a href="#"><img src="images/thumbs/4.jpg" />
+					<li><a href="#"><img src="images/thumbs/5.jpg" />
+					<li><a href="#"><img src="images/thumbs/6.jpg" />
+					<li><a href="#"><img src="images/thumbs/7.jpg" />
+					<li><a href="#"><img src="images/thumbs/8.jpg" />
+					<li><a href="#"><img src="images/thumbs/9.jpg" />
+					<li><a href="#"><img src="images/thumbs/10.jpg" />
+					<li><a href="#"><img src="images/thumbs/11.jpg" />
+					<li><a href="#"><img src="images/thumbs/12.jpg" />
+					<li><a href="#"><img src="images/thumbs/13.jpg" />
+					<li><a href="#"><img src="images/thumbs/14.jpg" />
+					<li><a href="#"><img src="images/thumbs/15.jpg" />
+					<li><a href="#"><img src="images/thumbs/16.jpg" />
+					<li><a href="#"><img src="images/thumbs/17.jpg" />
+					<li><a href="#"><img src="images/thumbs/18.jpg" />
+					<li><a href="#"><img src="images/thumbs/19.jpg" />
+					<li><a href="#"><img src="images/thumbs/20.jpg" />
+					<li><a href="#"><img src="images/thumbs/21.jpg" />
+					<li><a href="#"><img src="images/thumbs/22.jpg" />
+					<li><a href="#"><img src="images/thumbs/23.jpg" />
+					<li><a href="#"><img src="images/thumbs/24.jpg" />
+					<li><a href="#"><img src="images/thumbs/25.jpg" />
+					<li><a href="#"><img src="images/thumbs/26.jpg" />
+					<li><a href="#"><img src="images/thumbs/27.jpg" />
+					<li><a href="#"><img src="images/thumbs/28.jpg" />
+					<li><a href="#"><img src="images/thumbs/29.jpg" />
+					<li><a href="#"><img src="images/thumbs/30.jpg" />
+					<li><a href="#"><img src="images/thumbs/31.jpg" />
+					<li><a href="#"><img src="images/thumbs/32.jpg" />
+					<li><a href="#"><img src="images/thumbs/33.jpg" />
+					<li><a href="#"><img src="images/thumbs/34.jpg" />
+					<li><a href="#"><img src="images/thumbs/35.jpg" />
+					<li><a href="#"><img src="images/thumbs/36.jpg" />
+				</ul>
+			</section>
+        </div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.proximity.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+				var Photo	= (function() {
+					
+					var $list		= $('#pe-thumbs'),
+						listW		= $list.width(),
+						listL		= $list.offset().left,
+						$elems		= $list.find('img'),
+						$descrp		= $list.find('div.pe-description'),
+						settings	= {
+							maxScale	: 0.9,
+							maxOpacity	: 0.9,
+							minOpacity	: Number( $elems.css('opacity') )
+						},
+						init		= function() {
+							
+							settings.minScale = _getScaleVal();
+							_loadImages( function() {
+								
+								_calcDescrp();
+								_initEvents();
+							
+							});
+						
+						},
+						// Get Value of CSS Scale through JavaScript:
+						// http://css-tricks.com/get-value-of-css-rotation-through-javascript/
+						_getScaleVal= function() {
+						
+							var st = window.getComputedStyle($elems.get(0), null),
+								tr = st.getPropertyValue("-webkit-transform") ||
+									 st.getPropertyValue("-moz-transform") ||
+									 st.getPropertyValue("-ms-transform") ||
+									 st.getPropertyValue("-o-transform") ||
+									 st.getPropertyValue("transform") ||
+									 "fail...";
+
+							if( tr !== 'none' ) {	 
+
+								var values = tr.split('(')[1].split(')')[0].split(','),
+									a = values[0],
+									b = values[1],
+									c = values[2],
+									d = values[3];
+
+								return Math.sqrt( a * a + b * b );
+							
+							}
+							
+						},
+						_calcDescrp	= function() {
+							
+							$descrp.each( function(i) {
+							
+								var $el		= $(this),
+									$img	= $el.prev(),
+									img_w	= $img.width(),
+									img_h	= $img.height(),
+									img_n_w	= settings.maxScale * img_w,
+									img_n_h	= settings.maxScale * img_h,
+									space_t = ( img_n_h - img_h ) / 2,
+									space_l = ( img_n_w - img_w ) / 2;
+								
+								$el.data( 'space_l', space_l ).css({
+									height	: settings.maxScale * $el.height(),
+									top		: -space_t,
+									left	: img_n_w - space_l
+								});
+							
+							});
+						
+						},
+						_initEvents	= function() {
+						
+							$elems.on('proximity.Photo', { max: 170, throttle: 10, fireOutOfBounds : true }, function(event, proximity, distance) {
+								
+								var $el			= $(this),
+									$li			= $el.closest('li'),
+									$desc		= $el.next(),
+									scaleVal	= proximity * ( settings.maxScale - settings.minScale ) + settings.minScale,
+									scaleExp	= 'scale(' + scaleVal + ')';
+								
+								var $desc		= $el.next();
+								if( scaleVal === settings.maxScale ) {
+									
+									$li.css( 'z-index', 1000 );
+									
+									if( $desc.offset().left + $desc.width() > listL + listW ) {
+										
+										$desc.css( 'left', -$desc.width() - $desc.data( 'space_l' ) );
+									
+									}
+									
+									$desc.fadeIn( 800 );
+									
+								}	
+								else {
+									
+									$li.css( 'z-index', 1 );
+									
+									$desc.stop(true,true).hide();
+								
+								}	
+								
+								$el.css({
+									'-webkit-transform'	: scaleExp,
+									'-moz-transform'	: scaleExp,
+									'-o-transform'		: scaleExp,
+									'-ms-transform'		: scaleExp,
+									'transform'			: scaleExp,
+									'opacity'			: ( proximity * ( settings.maxOpacity - settings.minOpacity ) + settings.minOpacity )
+								});
+
+							});
+						
+						},
+						_loadImages	= function( callback ) {
+							
+							var loaded 	= 0,
+								total	= $elems.length;
+							
+							$elems.each( function(i) {
+								
+								var $el = $(this);
+								
+								$('<img/>').load( function() {
+									
+									++loaded;
+									if( loaded === total )
+										callback.call();
+									
+								}).attr( 'src', $el.attr('src') );
+							
+							});
+						
+						};
+					
+					return {
+						init	: init
+					};
+				
+				})();
+				
+				Photo.init();
+				
+			});
+		</script>
+            <!-- content-11  -->
+           <section class="content-11">
+          
+				<div class="row v-center">
+                    <a class="btn btn-large btn-danger" href="#">With<p align="center"> <img src="heart.png" /> </p> From Keerthi And Priyanka</a>
+                </div>
+            </section>
+
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../../common-files/js/jquery-1.10.2.min.js"></script>
+        <script src="../../flat-ui/js/bootstrap.min.js"></script>
+        <script src="../../common-files/js/modernizr.custom.js"></script>
+        <script src="../../common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+        <script src="../../common-files/js/jquery.parallax.min.js"></script>
+        <script src="../../common-files/js/startup-kit.js"></script>
+        <script src="js/jquery.backgroundvideo.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
